@@ -51,6 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 /project/SPT.Build/obj
-/project/SPT.Build/obj/Debug
 /project/SPT.Launcher.Base/obj
-/project/SPT.Launcher.Base/obj
+/project/SPT.Build/bin
+/project/SPT.Launcher.Base/bin
+/project/Build
