@@ -4,14 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:dialogHost="clr-namespace:DialogHostAvalonia;assembly=DialogHost.Avalonia"
 			 xmlns:helpers="using:SPT.Launcher.Helpers"
+			 xmlns:converters="using:SPT.Launcher.Converters"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SPT.Launcher.Views.Dialogs.RegisterDialogView"
              Background="{DynamicResource BackgroundBrush}"
              MinWidth="300"
              MinHeight="100"
              >
+	<UserControl.Resources>
+		<converters:StringIsNullOrEmptyToBoolConverter x:Key="StringIsNullOrEmptyToBoolConverter" />
+	</UserControl.Resources>
 
-	<!-- <Grid RowDefinitions="*,AUTO,AUTO,AUTO" ColumnDefinitions="*,AUTO" Margin="10"> -->
 	<Grid RowDefinitions="*,AUTO,AUTO,AUTO,AUTO" ColumnDefinitions="*,AUTO" Margin="10">
 
 		<!-- Question Text -->
@@ -32,13 +35,22 @@
 				</DataTemplate>
 			</ComboBox.ItemTemplate>
 		</ComboBox>
-		
+
 		<!-- Password box -->
-		<TextBox Grid.Row="2" Grid.ColumnSpan="2"
-		         PasswordChar="*"
-		         Watermark="{Binding Source={x:Static helpers:LocalizationProvider.Instance}, Path=password}"
-		         Text="{Binding Password}"
-		/>
+		<Grid Grid.Row="2" Grid.ColumnSpan="2">
+			<TextBox PasswordChar="*"
+			         Text="{Binding Password, Mode=TwoWay}"
+			         />
+			<TextBlock Text="{Binding Source={x:Static helpers:LocalizationProvider.Instance}, Path=password}"
+			           IsHitTestVisible="False"
+			           IsVisible="{Binding Password, Converter={StaticResource StringIsNullOrEmptyToBoolConverter}}"
+			           VerticalAlignment="Center"
+			           Margin="12 0"
+			           Foreground="White"
+			           FontWeight="SemiBold"
+			           Opacity="0.7"
+			           />
+		</Grid>
          
 		<!-- Description Area -->
 		<Border Grid.Row="3" Grid.ColumnSpan="3" Margin="0 10"

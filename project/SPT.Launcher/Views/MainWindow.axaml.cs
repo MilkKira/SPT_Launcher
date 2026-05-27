@@ -13,9 +13,11 @@ namespace SPT.Launcher.Views
         public MainWindow()
         {
             InitializeComponent();
-#if DEBUG
-            this.AttachDevTools();
-#endif
+            
+            // 移除 this.AttachDevTools();
+// #if DEBUG
+//             this.AttachDevTools();
+// #endif
 
             WindowNotificationManager notificationManager = new WindowNotificationManager(this);
 

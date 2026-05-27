@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SPT.Launcher.Base")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fb91dcd23ac5204d5be3cf8d0abc47dd3508e1c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e65934eeec938828999becda3ea0383abb23440")]
 [assembly: System.Reflection.AssemblyProductAttribute("SPT.Launcher.Base")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SPT.Launcher.Base")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

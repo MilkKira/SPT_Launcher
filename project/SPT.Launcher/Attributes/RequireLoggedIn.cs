@@ -10,7 +10,8 @@ namespace SPT.Launcher.Attributes
     {
         public override async Task<NavigationPreConditionResult> TestPreCondition(IScreen Host)
         {
-            AccountStatus status = await AccountManager.LoginAsync(AccountManager.SelectedAccount.username);
+            // AccountStatus status = await AccountManager.LoginAsync(AccountManager.SelectedAccount.username);
+            AccountStatus status = await AccountManager.LoginAsync(AccountManager.SelectedAccount.username, AccountManager.SelectedPassword);
 
             if (status == AccountStatus.OK) return NavigationPreConditionResult.FromSuccess();
 

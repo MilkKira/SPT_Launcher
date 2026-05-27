@@ -31,11 +31,13 @@ namespace SPT.Launcher
         private const string STATUS_OK = "OK";
         public static AccountInfo SelectedAccount { get; private set; } = null;
         public static ProfileInfo SelectedProfileInfo { get; private set; } = null;
+        public static string SelectedPassword { get; private set; } = string.Empty;
 
         public static void Logout()
         {
             // Set currently selected account to null, as well as removing the old session token
             SelectedAccount = null;
+            SelectedPassword = string.Empty;
             RequestHandler.ChangeSession(null);
         }
 
@@ -46,21 +48,21 @@ namespace SPT.Launcher
         
         
         /** 兼容只传用户名的旧调用；优先复用自动登录密码，当前会话已登录时直接通过。 */
-        public static async Task<AccountStatus> LoginAsync(string username)
-        {
-            ServerSetting defaultServer = LauncherSettingsProvider.Instance.Server;
-            if (defaultServer.AutoLoginCreds?.Username == username)
-            {
-                return await LoginAsync(username, defaultServer.AutoLoginCreds.Password);
-            }
-
-            if (SelectedAccount?.username == username)
-            {
-                return AccountStatus.OK;
-            }
-
-            return await LoginAsync(username, string.Empty);
-        }
+        // public static async Task<AccountStatus> LoginAsync(string username)
+        // {
+        //     ServerSetting defaultServer = LauncherSettingsProvider.Instance.Server;
+        //     if (defaultServer.AutoLoginCreds?.Username == username)
+        //     {
+        //         return await LoginAsync(username, defaultServer.AutoLoginCreds.Password);
+        //     }
+        //
+        //     if (SelectedAccount?.username == username)
+        //     {
+        //         return AccountStatus.OK;
+        //     }
+        //
+        //     return await LoginAsync(username, string.Empty);
+        // }
         /** 使用用户名和密码登录账号，通过补丁接口校验密码后再获取账号资料。 */
         public static async Task<AccountStatus> LoginAsync(string username, string password)
         {
@@ -86,6 +88,7 @@ namespace SPT.Launcher
             }
 
             SelectedAccount = Json.Deserialize<AccountInfo>(json);
+            SelectedPassword = password;
             RequestHandler.ChangeSession(SelectedAccount.id);
 
             await UpdateProfileInfoAsync();

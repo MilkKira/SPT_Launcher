@@ -100,6 +100,7 @@ namespace SPT.Launcher.Helpers
             englishLocale.back = "Back";
             englishLocale.wipe_profile = "Wipe Profile";
             englishLocale.username = "Username";
+            englishLocale.password = "Password";
             englishLocale.update = "Update";
             englishLocale.edit_account_update_error = "An issue occurred while updating your profile.";
             englishLocale.register = "Register";
@@ -368,6 +369,15 @@ namespace SPT.Launcher.Helpers
         {
             get => _username;
             set => SetProperty(ref _username, value);
+        }
+        #endregion
+
+        #region password
+        private string _password;
+        public string password
+        {
+            get => _password;
+            set => SetProperty(ref _password, value);
         }
         #endregion
 

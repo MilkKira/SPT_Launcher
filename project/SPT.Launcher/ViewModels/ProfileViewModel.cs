@@ -129,7 +129,8 @@ namespace SPT.Launcher.ViewModels
         {
             LauncherSettingsProvider.Instance.AllowSettings = false;
 
-            AccountStatus status = await AccountManager.LoginAsync(AccountManager.SelectedAccount.username);
+            // AccountStatus status = await AccountManager.LoginAsync(AccountManager.SelectedAccount.username);
+            AccountStatus status = await AccountManager.LoginAsync(AccountManager.SelectedAccount.username, AccountManager.SelectedPassword);
 
             LauncherSettingsProvider.Instance.AllowSettings = true;
 
