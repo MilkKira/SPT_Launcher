@@ -60,9 +60,21 @@ namespace SPT.Launcher.ViewModels
 
                                 var result = await ShowDialog(new RegisterDialogViewModel(null, Login.Username));
 
-                                if (result != null && result is SPTEdition edition)
+                                if (result != null && result is RegisterDialogViewModel register)
                                 {
-                                    AccountStatus registerResult = await AccountManager.RegisterAsync(Login.Username, edition.Name);
+                                    // AccountStatus registerResult = await AccountManager.RegisterAsync(Login.Username, edition.Name);
+                                    
+                                    if (string.IsNullOrWhiteSpace(register.Password))
+                                    {
+                                        SendNotification("", LocalizationProvider.Instance.registration_failed, NotificationType.Error);
+                                        return;
+                                    }
+
+                                    AccountStatus registerResult = await AccountManager.RegisterAsync(
+                                        Login.Username,
+                                        register.Password,
+                                        register.Editions.SelectedEdition.Name
+                                    );
 
                                     switch (registerResult)
                                     {

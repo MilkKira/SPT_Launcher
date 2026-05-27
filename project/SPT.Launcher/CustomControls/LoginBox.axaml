@@ -7,7 +7,8 @@
              x:Class="SPT.Launcher.CustomControls.LoginBox">
         <Border Classes="card">
             
-            <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto" Margin="10">
+            <!-- <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, Auto" Margin="10"> -->
+            <Grid RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*, Auto" Margin="10">
             <!-- Username box -->
             <TextBox Watermark="{Binding Source={x:Static helpers:LocalizationProvider.Instance}, Path=username}"
                      VerticalAlignment="Center"
@@ -15,21 +16,30 @@
                      Text="{Binding $parent[UserControl].Username}"
                      Margin="0 0 10 0"
                      />
+            <!-- Password box -->
+            <TextBox Grid.Row="1"
+                     Watermark="{Binding Source={x:Static helpers:LocalizationProvider.Instance}, Path=password}"
+                     VerticalAlignment="Center"
+                     MinWidth="250"
+                     PasswordChar="*"
+                     Text="{Binding $parent[UserControl].Password}"
+                     Margin="0 10 10 0"
+            />
             
             <!-- Login button -->
-            <Button Grid.Column="1" HorizontalContentAlignment="Center"
+            <Button Grid.Column="1" Grid.RowSpan="2" HorizontalContentAlignment="Center"
                     Command="{Binding $parent[UserControl].LoginCommand}"
                     IsEnabled="{Binding !$parent[UserControl].IsLoggingIn}"
                     IsDefault="True"
                     Classes="acc"
-                    >
+            >
                 <TextBlock
                         Text="{Binding Source={x:Static helpers:LocalizationProvider.Instance}, Path=login_or_register}"
                         TextWrapping="Wrap" />
             </Button>
             
             <!-- Auto login checkbox -->
-            <CheckBox Grid.Row="1" 
+            <CheckBox Grid.Row="2"
                       IsChecked="{Binding Source={x:Static helpers:LauncherSettingsProvider.Instance}, Path=UseAutoLogin}"
                       Content="{Binding Source={x:Static helpers:LocalizationProvider.Instance}, Path=login_automatically}"
                       />

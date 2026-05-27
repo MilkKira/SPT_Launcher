@@ -41,18 +41,37 @@ namespace SPT.Launcher
 
         public static async Task<AccountStatus> LoginAsync(LoginModel Creds)
         {
-            return await LoginAsync(Creds.Username);
+            return await LoginAsync(Creds.Username, Creds.Password);
         }
-
+        
+        
+        /** 兼容只传用户名的旧调用；优先复用自动登录密码，当前会话已登录时直接通过。 */
         public static async Task<AccountStatus> LoginAsync(string username)
         {
-            LoginRequestData data = new LoginRequestData(username);
+            ServerSetting defaultServer = LauncherSettingsProvider.Instance.Server;
+            if (defaultServer.AutoLoginCreds?.Username == username)
+            {
+                return await LoginAsync(username, defaultServer.AutoLoginCreds.Password);
+            }
+
+            if (SelectedAccount?.username == username)
+            {
+                return AccountStatus.OK;
+            }
+
+            return await LoginAsync(username, string.Empty);
+        }
+        /** 使用用户名和密码登录账号，通过补丁接口校验密码后再获取账号资料。 */
+        public static async Task<AccountStatus> LoginAsync(string username, string password)
+        {
+            LoginRequestData data = new LoginRequestData(username, password);
             string id = STATUS_FAILED;
             string json = "";
 
             try
             {
-                id = await RequestHandler.RequestLogin(data);
+                // id = await RequestHandler.RequestLogin(data);
+                id = await RequestHandler.RequestLoginCheck(data);
 
                 if (id == STATUS_FAILED)
                 {
@@ -76,7 +95,7 @@ namespace SPT.Launcher
 
         public static async Task UpdateProfileInfoAsync()
         {
-            LoginRequestData data = new LoginRequestData(SelectedAccount.username);
+            LoginRequestData data = new LoginRequestData(SelectedAccount.username, string.Empty);
             string profileInfoJson = await RequestHandler.RequestProfileInfo(data);
 
             if (profileInfoJson != null)
@@ -102,13 +121,13 @@ namespace SPT.Launcher
 
             return [];
         }
-
-        public static async Task<AccountStatus> RegisterAsync(string username, string edition)
+        /** 使用用户名、密码和版本创建新账号，成功后自动按同一组凭据登录。 */
+        public static async Task<AccountStatus> RegisterAsync(string username, string password, string edition)
         {
             string registerResult;
             try
             {
-                registerResult = await RequestHandler.RequestRegister(new RegisterRequestData(username, edition));
+                registerResult = await RequestHandler.RequestRegister(new RegisterRequestData(username, password, edition));
             }
             catch
             {
@@ -122,12 +141,12 @@ namespace SPT.Launcher
 
             LogManager.Instance.Info($"Account Registered: {username} {registerResult}");
 
-            return await LoginAsync(username);
+            return await LoginAsync(username, password);
         }
 
         public static async Task<AccountStatus> RemoveAsync()
         {
-            LoginRequestData data = new LoginRequestData(SelectedAccount.username);
+            LoginRequestData data = new LoginRequestData(SelectedAccount.username, string.Empty);
 
             try
             {
@@ -190,7 +209,8 @@ namespace SPT.Launcher
 
         public static async Task<AccountStatus> WipeAsync(string edition)
         {
-            RegisterRequestData data = new RegisterRequestData(SelectedAccount.username, edition);
+            // RegisterRequestData data = new RegisterRequestData(SelectedAccount.username, edition);
+            RegisterRequestData data = new RegisterRequestData(SelectedAccount.username, string.Empty, edition);
             string json = STATUS_FAILED;
 
             try

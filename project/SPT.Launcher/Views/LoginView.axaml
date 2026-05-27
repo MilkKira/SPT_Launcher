@@ -32,6 +32,7 @@
 		<!-- Login box -->
 		<cc:LoginBox Grid.Row="2" Grid.Column="2"
 		             Username="{Binding Login.Username, Mode=TwoWay}"
+		             Password="{Binding Login.Password, Mode=TwoWay}"
 		             LoginCommand="{Binding LoginCommand}"
 		             />
 	</Grid>
