@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SPT.Build")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c46680aaf885e3c06c6001d10f76e04e1e460ed")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+802ca998bad2d1d85aeed2ee725681d9daafd134")]
 [assembly: System.Reflection.AssemblyProductAttribute("SPT.Build")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SPT.Build")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

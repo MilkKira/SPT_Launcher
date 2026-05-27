@@ -1,0 +1,14 @@
+{
+  "FirstRun": false,
+  "DefaultLocale": "Chinese (Simplified)",
+  "LauncherStartGameAction": 0,
+  "UseAutoLogin": true,
+  "IsDevMode": true,
+  "GamePath": "D:\\GitHub\\SPT_Launcher\\project",
+  "ExcludeFromCleanup": [],
+  "Server": {
+    "AutoLoginCreds": null,
+    "Name": "SPT",
+    "Url": "https://eft.ltdzrelx.top:25000"
+  }
+}

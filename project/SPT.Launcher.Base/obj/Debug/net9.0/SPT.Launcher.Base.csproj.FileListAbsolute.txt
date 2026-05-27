@@ -1,0 +1,13 @@
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\bin\Debug\net9.0\SPT.Launcher.Base.deps.json
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\bin\Debug\net9.0\SPT.Launcher.Base.dll
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\bin\Debug\net9.0\SPT.Launcher.Base.pdb
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\obj\Debug\net9.0\SPT.Launcher.Base.csproj.AssemblyReference.cache
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\obj\Debug\net9.0\SPT.Launcher.Base.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\obj\Debug\net9.0\SPT.Launcher.Base.AssemblyInfoInputs.cache
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\obj\Debug\net9.0\SPT.Launcher.Base.AssemblyInfo.cs
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\obj\Debug\net9.0\SPT.Launcher.Base.csproj.CoreCompileInputs.cache
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\obj\Debug\net9.0\SPT.Launcher.Base.sourcelink.json
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\obj\Debug\net9.0\SPT.Launcher.Base.dll
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\obj\Debug\net9.0\refint\SPT.Launcher.Base.dll
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\obj\Debug\net9.0\SPT.Launcher.Base.pdb
+D:\GitHub\SPT_Launcher\project\SPT.Launcher.Base\obj\Debug\net9.0\ref\SPT.Launcher.Base.dll
