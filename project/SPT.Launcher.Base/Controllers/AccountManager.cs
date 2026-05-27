@@ -66,10 +66,16 @@ namespace SPT.Launcher
         /** 使用用户名和密码登录账号，通过补丁接口校验密码后再获取账号资料。 */
         public static async Task<AccountStatus> LoginAsync(string username, string password)
         {
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                return AccountStatus.LoginFailed;
+            }
+            
             LoginRequestData data = new LoginRequestData(username, password);
             string id = STATUS_FAILED;
             string json = "";
-
+            
+            
             try
             {
                 // id = await RequestHandler.RequestLogin(data);
