@@ -1,0 +1,246 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\GitHub\\SPT_Launcher\\project\\SPT.Build\\SPT.Build.csproj": {}
+  },
+  "projects": {
+    "D:\\GitHub\\SPT_Launcher\\project\\SPT.Build\\SPT.Build.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Build\\SPT.Build.csproj",
+        "projectName": "SPT.Build",
+        "projectPath": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Build\\SPT.Build.csproj",
+        "packagesPath": "C:\\Users\\JT\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Build\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\JT\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher.Base\\SPT.Launcher.Base.csproj": {
+                "projectPath": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher.Base\\SPT.Launcher.Base.csproj"
+              },
+              "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher\\SPT.Launcher.csproj": {
+                "projectPath": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher\\SPT.Launcher.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.314/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    },
+    "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher.Base\\SPT.Launcher.Base.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher.Base\\SPT.Launcher.Base.csproj",
+        "projectName": "SPT.Launcher.Base",
+        "projectPath": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher.Base\\SPT.Launcher.Base.csproj",
+        "packagesPath": "C:\\Users\\JT\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher.Base\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\JT\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.Win32.Registry": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "SharpHDiffPatch.Core": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.314/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher\\SPT.Launcher.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher\\SPT.Launcher.csproj",
+        "projectName": "SPT.Launcher",
+        "projectPath": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher\\SPT.Launcher.csproj",
+        "packagesPath": "C:\\Users\\JT\\.nuget\\packages\\",
+        "outputPath": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\JT\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher.Base\\SPT.Launcher.Base.csproj": {
+                "projectPath": "D:\\GitHub\\SPT_Launcher\\project\\SPT.Launcher.Base\\SPT.Launcher.Base.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Avalonia": {
+              "target": "Package",
+              "version": "[11.3.2, )"
+            },
+            "Avalonia.Desktop": {
+              "target": "Package",
+              "version": "[11.3.2, )"
+            },
+            "Avalonia.Diagnostics": {
+              "target": "Package",
+              "version": "[11.3.2, )"
+            },
+            "Avalonia.ReactiveUI": {
+              "target": "Package",
+              "version": "[11.3.2, )"
+            },
+            "Avalonia.Themes.Fluent": {
+              "target": "Package",
+              "version": "[11.3.2, )"
+            },
+            "DialogHost.Avalonia": {
+              "target": "Package",
+              "version": "[0.9.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.314/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
