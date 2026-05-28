@@ -49,74 +49,75 @@ namespace SPT.Launcher.ViewModels
                         }
                     case AccountStatus.LoginFailed:
                         {
-                            // Create account if it doesn't exist
-                            if (!string.IsNullOrWhiteSpace(Login.Username))
-                            {
-                                if (Login.Username.Length > 15)
-                                {
-                                    SendNotification(LocalizationProvider.Instance.registration_failed, LocalizationProvider.Instance.register_failed_name_limit, NotificationType.Error);
-                                    return;
-                                }
-
-                                var result = await ShowDialog(new RegisterDialogViewModel(null, Login.Username));
-
-                                if (result != null && result is RegisterDialogViewModel register)
-                                {
-                                    // AccountStatus registerResult = await AccountManager.RegisterAsync(Login.Username, edition.Name);
-                                    
-                                    if (string.IsNullOrWhiteSpace(register.Password))
-                                    {
-                                        SendNotification("", LocalizationProvider.Instance.registration_failed, NotificationType.Error);
-                                        return;
-                                    }
-
-                                    AccountStatus registerResult = await AccountManager.RegisterAsync(
-                                        Login.Username,
-                                        register.Password,
-                                        register.Editions.SelectedEdition.Name
-                                    );
-
-                                    switch (registerResult)
-                                    {
-                                        case AccountStatus.OK:
-                                            {
-                                                if (LauncherSettingsProvider.Instance.UseAutoLogin && LauncherSettingsProvider.Instance.Server.AutoLoginCreds != Login)
-                                                {
-                                                    LauncherSettingsProvider.Instance.Server.AutoLoginCreds = Login;
-                                                }
-
-                                                LauncherSettingsProvider.Instance.SaveSettings();
-                                                SendNotification(LocalizationProvider.Instance.profile_created, Login.Username, NotificationType.Success);
-
-                                                ViewModelBase vm = new ProfileViewModel(HostScreen);
-                                                await vm.OnCreateAsync();
-
-                                                await NavigateTo(vm);
-                                                break;
-                                            }
-                                        case AccountStatus.RegisterFailed:
-                                            {
-                                                SendNotification("", LocalizationProvider.Instance.registration_failed, NotificationType.Error);
-                                                break;
-                                            }
-                                        case AccountStatus.NoConnection:
-                                            {
-                                                await NavigateTo(new ConnectServerViewModel(HostScreen));
-                                                break;
-                                            }
-                                        default:
-                                            {
-                                                SendNotification("", registerResult.ToString(), NotificationType.Error);
-                                                break;
-                                            }
-                                    }
-
-                                    return;
-                                }
-                            }
+                            
+                            // TODO: 账户不存在时创建账户
+                            
+                            // if (!string.IsNullOrWhiteSpace(Login.Username))
+                            // {
+                            //     if (Login.Username.Length > 15)
+                            //     {
+                            //         SendNotification(LocalizationProvider.Instance.registration_failed, LocalizationProvider.Instance.register_failed_name_limit, NotificationType.Error);
+                            //         return;
+                            //     }
+                            //
+                            //     var result = await ShowDialog(new RegisterDialogViewModel(null, Login.Username));
+                            //
+                            //     if (result != null && result is RegisterDialogViewModel register)
+                            //     {
+                            //         // AccountStatus registerResult = await AccountManager.RegisterAsync(Login.Username, edition.Name);
+                            //         
+                            //         if (string.IsNullOrWhiteSpace(register.Password))
+                            //         {
+                            //             SendNotification("", LocalizationProvider.Instance.registration_failed, NotificationType.Error);
+                            //             return;
+                            //         }
+                            //
+                            //         AccountStatus registerResult = await AccountManager.RegisterAsync(
+                            //             Login.Username,
+                            //             register.Password,
+                            //             register.Editions.SelectedEdition.Name
+                            //         );
+                            //
+                            //         switch (registerResult)
+                            //         {
+                            //             case AccountStatus.OK:
+                            //                 {
+                            //                     if (LauncherSettingsProvider.Instance.UseAutoLogin && LauncherSettingsProvider.Instance.Server.AutoLoginCreds != Login)
+                            //                     {
+                            //                         LauncherSettingsProvider.Instance.Server.AutoLoginCreds = Login;
+                            //                     }
+                            //
+                            //                     LauncherSettingsProvider.Instance.SaveSettings();
+                            //                     SendNotification(LocalizationProvider.Instance.profile_created, Login.Username, NotificationType.Success);
+                            //
+                            //                     ViewModelBase vm = new ProfileViewModel(HostScreen);
+                            //                     await vm.OnCreateAsync();
+                            //
+                            //                     await NavigateTo(vm);
+                            //                     break;
+                            //                 }
+                            //             case AccountStatus.RegisterFailed:
+                            //                 {
+                            //                     SendNotification("", LocalizationProvider.Instance.registration_failed, NotificationType.Error);
+                            //                     break;
+                            //                 }
+                            //             case AccountStatus.NoConnection:
+                            //                 {
+                            //                     await NavigateTo(new ConnectServerViewModel(HostScreen));
+                            //                     break;
+                            //                 }
+                            //             default:
+                            //                 {
+                            //                     SendNotification("", registerResult.ToString(), NotificationType.Error);
+                            //                     break;
+                            //                 }
+                            //         }
+                            //
+                            //         return;
+                            //     }
+                            // }
 
                             SendNotification("", LocalizationProvider.Instance.login_failed, NotificationType.Error);
-
                             break;
                         }
                     case AccountStatus.NoConnection:
