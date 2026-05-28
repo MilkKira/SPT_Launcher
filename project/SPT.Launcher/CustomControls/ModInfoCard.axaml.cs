@@ -11,6 +11,8 @@ namespace SPT.Launcher.CustomControls
         public ModInfoCard()
         {
             InitializeComponent();
+            // 隐藏自身
+            this.IsVisible = false;
         }
 
         private void InitializeComponent()
