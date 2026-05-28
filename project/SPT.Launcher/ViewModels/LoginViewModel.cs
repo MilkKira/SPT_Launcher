@@ -122,7 +122,8 @@ namespace SPT.Launcher.ViewModels
                         }
                     case AccountStatus.NoConnection:
                         {
-                            await NavigateTo(new ConnectServerViewModel(HostScreen));
+                            SendNotification("", LocalizationProvider.Instance.incorrect_login, NotificationType.Error);
+                            // await NavigateTo(new ConnectServerViewModel(HostScreen));
                             break;
                         }
                 }

@@ -17,7 +17,7 @@
   "login_or_register": "  登录  ",
   "go_to_login": "去登录",
   "login_automatically": "自动登录",
-  "incorrect_login": "邮箱或密码不正确",
+  "incorrect_login": "用户账户或密码不正确",
   "login_failed": "登录失败",
   "edition": "游戏版本",
   "id": "ID",
